@@ -1,0 +1,143 @@
+{
+  "seed": 42,
+  "n_perm": 30,
+  "mlp_sementes": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "limiar_degenerado": {
+    "R": 0.0001,
+    "m": 0.0001
+  },
+  "modelos": {
+    "Baseline": {
+      "colunas": "3 numericas",
+      "minmax": true,
+      "params": {}
+    },
+    "Regressao Linear": {
+      "colunas": "3 numericas + 8 protocolo",
+      "minmax": true,
+      "params": {}
+    },
+    "Random Forest": {
+      "colunas": "3 numericas + 8 protocolo",
+      "minmax": true,
+      "params": {
+        "n_estimators": 300,
+        "max_depth": 12
+      }
+    },
+    "Gradient Boosting": {
+      "colunas": "3 numericas + 8 protocolo",
+      "minmax": true,
+      "params": {
+        "n_estimators": 300,
+        "max_depth": 3,
+        "learning_rate": 0.05
+      }
+    },
+    "GPR (ARD)": {
+      "colunas": "3 numericas",
+      "minmax": true,
+      "params": {
+        "kernel": "C*RBF(ARD,3)+White",
+        "n_restarts_optimizer": 2
+      }
+    },
+    "MLP": {
+      "colunas": "3 numericas + 8 protocolo",
+      "minmax": true,
+      "params": {
+        "hidden": [
+          64,
+          32
+        ],
+        "alpha": 0.001
+      }
+    },
+    "MLP (sem protocolo)": {
+      "colunas": "3 numericas",
+      "minmax": true,
+      "params": {
+        "hidden": [
+          64,
+          32
+        ],
+        "alpha": 0.001
+      }
+    },
+    "Semiempirico global (j)": {
+      "colunas": "3 numericas",
+      "minmax": false,
+      "params": {}
+    },
+    "Semiempirico estendido (j,P,UR)": {
+      "colunas": "3 numericas",
+      "minmax": false,
+      "params": {}
+    },
+    "Regressao (ln j, j)": {
+      "colunas": "3 numericas",
+      "minmax": false,
+      "params": {}
+    }
+  },
+  "versoes": {
+    "python": "3.13.18",
+    "numpy": "2.4.6",
+    "pandas": "2.2.3",
+    "sklearn": "1.6.1",
+    "scipy": "1.16.3"
+  },
+  "resumo_por_curva": {
+    "n_curvas": 141,
+    "n_falhas": 0,
+    "R2_mediano": 0.9978646789166161,
+    "n_R2_ge_099": 101,
+    "ohm_degenerado": 120,
+    "conc_degenerado": 34,
+    "limiar_R": 0.0001,
+    "limiar_m": 0.0001,
+    "R2_medio_por_UR": {
+      "30": 0.9932466303248314,
+      "50": 0.9767555690521633,
+      "100": 0.9265852967721245
+    },
+    "R2_medio_por_P": {
+      "5": 0.9754348571199242,
+      "15": 0.9603993972457838,
+      "25": 0.9632390206309165
+    }
+  },
+  "diagnostico_residuos": {
+    "Random Forest": {
+      "residuo_medio": -0.018467349985232688,
+      "residuo_dp": 0.12014112854184554,
+      "shapiro_p": 4.732730092339346e-20,
+      "pearson_res_j": 0.02174077165213533,
+      "pearson_p": 0.3067559541205654
+    },
+    "Gradient Boosting": {
+      "residuo_medio": -0.00415029455596234,
+      "residuo_dp": 0.11399087864831992,
+      "shapiro_p": 8.833551742942671e-16,
+      "pearson_res_j": 0.043681390124579986,
+      "pearson_p": 0.03995264438128801
+    },
+    "GPR (ARD)": {
+      "residuo_medio": -0.0048464690265960595,
+      "residuo_dp": 0.11112645862188246,
+      "shapiro_p": 1.6611306506418074e-14,
+      "pearson_res_j": -0.0018961814009100352,
+      "pearson_p": 0.928978045288461
+    },
+    "RF treino completo": {
+      "R2": 0.9389569039351601,
+      "pearson_res_j": -0.010627228135159442
+    }
+  }
+}
